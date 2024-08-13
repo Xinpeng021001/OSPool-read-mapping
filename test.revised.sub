@@ -1,0 +1,24 @@
+executable = executable_revi.sh
+arguments = $(SAMPLE_ID)
+transfer_input_files = GCF_002160515.1.tar.gz
+
+
+# optional
+batch_name = sample_htcondor
+
+error = job.$(SAMPLE_ID).error
+output = job.$(SAMPLE_ID).out
+log = job.$(SAMPLE_ID).log
+
++SingularityImage = "osdf:///ospool/ap40/data/xinpeng.zhang/readmapping_final.sif"
+
+
+transfer_output_files = $(SAMPLE_ID)_result.tar.gz
+
+request_cpus = 1
+request_memory = 1 GB
+request_disk = 5 GB
+
+#queue SAMPLE_ID from test.list
+
+queue SAMPLE_ID from download.list

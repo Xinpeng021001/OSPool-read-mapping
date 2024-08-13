@@ -70,7 +70,7 @@ inStrain profile "$OUTPUT_DIR/${SAMPLE_ID}_sorted_output.bam" "$GENOME_PATH" \
 
 4. CoverM to calculate  
 
- # Run CoverM to calculate relative abundance 
+ # Run coverm to calculate relative abundance 
 
 coverm genome -b "$OUTPUT_DIR/${SAMPLE_ID}_sorted_output.bam" \ 
 
@@ -85,3 +85,23 @@ coverm genome -b "$OUTPUT_DIR/${SAMPLE_ID}_sorted_output.bam" \
  
 
  
+
+
+UPDATE:
+
+wget on htcondor container exectuable might be not working sometimes, which could use:
+
+echo "check_certificate = off" > ~/.wgetrc
+
+to revise, or try to update ca-certificates/openssl
+
+besides, running interactive container command (could use pip to install) , need to add 
+
+source /opt/conda/etc/profile.d/conda.sh
+conda activate readmapping
+
+in the execuatble script
+
+
+
+
